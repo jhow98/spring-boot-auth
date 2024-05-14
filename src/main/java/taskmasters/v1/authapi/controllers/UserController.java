@@ -5,9 +5,11 @@ import org.springframework.web.bind.annotation.*;
 import taskmasters.v1.authapi.dto.UserDTO;
 import taskmasters.v1.authapi.services.implementation.UserService;
 
+import java.util.Collection;
+
 @RestController
 @RequestMapping("/users")
-public class UserController {
+public class UserController{
     @Autowired
     private UserService userService;
     @PostMapping
@@ -15,8 +17,15 @@ public class UserController {
         return userService.createUser(userDTO);
     }
 
-    @GetMapping
-    private Boolean getOK(){
-        return true;
+    @GetMapping("/admin")
+    private String getAdmin(){
+        return "Permissão de Administrador";
     }
+
+    @GetMapping("/user")
+    private String getUser(){
+        return "Permissão de Usuário";
+    }
+
+
 }

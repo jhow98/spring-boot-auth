@@ -1,5 +1,6 @@
 package taskmasters.v1.authapi.dto;
 
-public record UserDTO(String name, String login, String password) {
+import taskmasters.v1.authapi.enums.RoleEnum;
 
+public record UserDTO(String name, String login, String password, RoleEnum role) {
 }
